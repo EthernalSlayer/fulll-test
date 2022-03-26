@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "outDir": "dist",
+    "noEmitOnError": true
+  },
+  "files": [
+    "src/algo/custom-number-type-increment.ts"
+  ]
+}
