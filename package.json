@@ -1,0 +1,25 @@
+{
+  "name": "fulll-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsc --watch",
+    "compile": "tsc",
+    "algo1": "node dist/custom-number-type-increment.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EthernalSlayer/fulll-test.git"
+  },
+  "author": "ethernalslayer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EthernalSlayer/fulll-test/issues"
+  },
+  "homepage": "https://github.com/EthernalSlayer/fulll-test#readme",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
