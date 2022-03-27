@@ -7,6 +7,7 @@
     "noEmitOnError": true
   },
   "files": [
-    "src/algo/custom-number-type-increment.ts"
+    "src/algo/custom-number-type-increment.ts",
+    "src/algo/fizzbuzz.ts",
   ]
 }
