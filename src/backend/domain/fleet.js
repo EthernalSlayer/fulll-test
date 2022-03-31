@@ -4,6 +4,9 @@ class Fleet {
   }
 
   register(vehicle) {
+    if (vehicle.registered === true) {
+      return "this vehicle has already been registered";
+    }
     this.vehicles.push(vehicle);
   }
 
