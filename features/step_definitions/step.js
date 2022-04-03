@@ -32,6 +32,11 @@ Given(
   }
 );
 
+Given("a location", function () {
+  // Write code here that turns the phrase above into concrete actions
+  this.location = { lat: 48.86, long: 2.28 };
+});
+
 When("I register this vehicle into my fleet", function () {
   // Write code here that turns the phrase above into concrete actions
   this.fleet.register(this.vehicle);
@@ -40,6 +45,11 @@ When("I register this vehicle into my fleet", function () {
 When("I try to register this vehicle into my fleet", function () {
   // Write code here that turns the phrase above into concrete actions
   this.fleet.register(this.vehicle);
+});
+
+When("I park my vehicle at this location", function () {
+  // Write code here that turns the phrase above into concrete actions
+  this.vehicle.park(this.location);
 });
 
 Then("this vehicle should be part of my vehicle fleet", function () {
@@ -60,5 +70,13 @@ Then(
       this.fleet.register(this.vehicle),
       is("this vehicle has already been registered")
     );
+  }
+);
+
+Then(
+  "the known location of my vehicle should verify this location",
+  function () {
+    // Write code here that turns the phrase above into concrete actions
+    assertThat(this.vehicle.located, is(this.location));
   }
 );

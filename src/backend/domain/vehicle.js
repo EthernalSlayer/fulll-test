@@ -3,6 +3,11 @@ class Vehicle {
     this.id = id;
     this.name = name;
     this.vehiclePlateNumber = plateNumber;
+    this.located = {};
+  }
+
+  park(location) {
+    this.located = location;
   }
 }
 
