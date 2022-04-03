@@ -1,7 +1,8 @@
 class Vehicle {
-  constructor(name) {
+  constructor(name, plateNumber, id) {
+    this.id = id;
     this.name = name;
-    this.registered = false;
+    this.vehiclePlateNumber = plateNumber;
   }
 }
 
