@@ -10,3 +10,9 @@ npm run compile
 
 to run the first algo test:
 npm run algo1
+
+to run the second algo test:
+npm run algo2
+
+to run cucumber tests for backend:
+npm test

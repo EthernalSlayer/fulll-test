@@ -15,8 +15,8 @@ class Fleet {
     return "this vehicle has been registered with success";
   }
 
-  registeredVehicles() {
-    return this.registeredVehiclesPlateNumber;
+  checkRegisteredVehicle(vehiclePlateNumber) {
+    return this.registeredVehiclesPlateNumber.includes(vehiclePlateNumber);
   }
 }
 

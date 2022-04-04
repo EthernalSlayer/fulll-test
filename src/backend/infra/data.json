@@ -2,8 +2,13 @@
     "fleets": [
         {
             "id": 1,
-            "registeredVehiclesPlateNumber": [],
+            "registeredVehiclesPlateNumber": ["PA34ZE"],
             "userID": 1
+        },
+        {
+            "id": 2,
+            "registeredVehiclesPlateNumber": [],
+            "userID": 2
         }
     ],
     "vehicles": [

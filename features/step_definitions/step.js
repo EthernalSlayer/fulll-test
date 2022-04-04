@@ -65,9 +65,7 @@ When("I try to park my vehicle at this location", function () {
 Then("this vehicle should be part of my vehicle fleet", function () {
   // Write code here that turns the phrase above into concrete actions
   assertThat(
-    this.fleet.registeredVehiclesPlateNumber.includes(
-      this.vehicle.vehiclePlateNumber
-    ),
+    this.fleet.checkRegisteredVehicle(this.vehicle.vehiclePlateNumber),
     is(true)
   );
 });
