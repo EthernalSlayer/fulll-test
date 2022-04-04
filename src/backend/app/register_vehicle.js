@@ -14,4 +14,5 @@ const register_vehicle = (fleetID, vehiclePlateNumber) => {
   return myFleetCopy.register(vehiclePlateNumber);
 };
 
-console.log(register_vehicle(2, "PA34ZE")); // todo remove
+// console.log(register_vehicle(2, "PA34ZE")); // todo remove
+module.exports = register_vehicle;
