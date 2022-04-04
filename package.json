@@ -8,7 +8,9 @@
     "dev": "tsc --watch",
     "compile": "tsc",
     "algo1": "node dist/custom-number-type-increment.js",
-    "algo2": "node dist/fizzbuzz.js"
+    "algo2": "node dist/fizzbuzz.js",
+    "register_vehicle": "node src/backend/app/register_vehicle.js",
+    "park_vehicle": "node src/backend/app/park_vehicle.js"
   },
   "repository": {
     "type": "git",

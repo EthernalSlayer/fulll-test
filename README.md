@@ -16,3 +16,9 @@ npm run algo2
 
 to run cucumber tests for backend:
 npm test
+
+to run backend-1 feature register a vehicle:
+npm run register_vehicle
+
+to run backend-1 feature park a vehicle:
+npm run park_vehicle
