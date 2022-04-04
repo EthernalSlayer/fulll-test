@@ -6,12 +6,12 @@ const Vehicle = require("../../src/backend/domain/vehicle");
 
 Given("my fleet", function () {
   // Write code here that turns the phrase above into concrete actions
-  this.fleet = new Fleet("Joe's fleet", 1);
+  this.fleet = new Fleet(1, 1);
 });
 
 Given("a vehicle", function () {
   // Write code here that turns the phrase above into concrete actions
-  this.vehicle = new Vehicle("toyota", "PA34ZE", 1);
+  this.vehicle = new Vehicle("PA34ZE", 1);
 });
 
 Given("I have registered this vehicle into my fleet", function () {
@@ -21,14 +21,14 @@ Given("I have registered this vehicle into my fleet", function () {
 
 Given("the fleet of another user", function () {
   // Write code here that turns the phrase above into concrete actions
-  this.otherUserFleet = new Fleet("Sam's fleet", 2);
+  this.otherUserFleet = new Fleet(2, 2);
 });
 
 Given(
   "this vehicle has been registered into the other user's fleet",
   function () {
     // Write code here that turns the phrase above into concrete actions
-    this.otherUserFleet.register(this.vehicle);
+    this.otherUserFleet.register(this.vehicle.vehiclePlateNumber);
   }
 );
 
@@ -37,17 +37,27 @@ Given("a location", function () {
   this.location = { lat: 48.86, long: 2.28 };
 });
 
+Given("my vehicle has been parked into this location", function () {
+  // Write code here that turns the phrase above into concrete actions
+  this.located = this.location;
+});
+
 When("I register this vehicle into my fleet", function () {
   // Write code here that turns the phrase above into concrete actions
-  this.fleet.register(this.vehicle);
+  this.fleet.register(this.vehicle.vehiclePlateNumber);
 });
 
 When("I try to register this vehicle into my fleet", function () {
   // Write code here that turns the phrase above into concrete actions
-  this.fleet.register(this.vehicle);
+  this.fleet.register(this.vehicle.vehiclePlateNumber);
 });
 
 When("I park my vehicle at this location", function () {
+  // Write code here that turns the phrase above into concrete actions
+  this.vehicle.park(this.location);
+});
+
+When("I try to park my vehicle at this location", function () {
   // Write code here that turns the phrase above into concrete actions
   this.vehicle.park(this.location);
 });
@@ -67,7 +77,7 @@ Then(
   function () {
     // Write code here that turns the phrase above into concrete actions
     assertThat(
-      this.fleet.register(this.vehicle),
+      this.fleet.register(this.vehicle.vehiclePlateNumber),
       is("this vehicle has already been registered")
     );
   }
@@ -78,5 +88,16 @@ Then(
   function () {
     // Write code here that turns the phrase above into concrete actions
     assertThat(this.vehicle.located, is(this.location));
+  }
+);
+
+Then(
+  "I should be informed that my vehicle is already parked at this location",
+  function () {
+    // Write code here that turns the phrase above into concrete actions
+    assertThat(
+      this.vehicle.park(this.location),
+      is("vehicle is already parked at this location")
+    );
   }
 );

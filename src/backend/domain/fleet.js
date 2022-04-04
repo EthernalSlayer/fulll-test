@@ -1,23 +1,22 @@
 class Fleet {
-  constructor(name, id) {
+  constructor(id, userID, registeredVehiclesPlateNumber) {
     this.id = id;
-    this.name = name;
-    this.vehicles = [];
-    this.registeredVehiclesPlateNumber = [];
+    this.userID = userID;
+    this.registeredVehiclesPlateNumber = registeredVehiclesPlateNumber
+      ? registeredVehiclesPlateNumber
+      : [];
   }
 
-  register(vehicle) {
-    if (
-      this.registeredVehiclesPlateNumber.includes(vehicle.vehiclePlateNumber)
-    ) {
+  register(vehiclePlateNumber) {
+    if (this.registeredVehiclesPlateNumber.includes(vehiclePlateNumber)) {
       return "this vehicle has already been registered";
     }
-    this.vehicles.push({ ...vehicle });
-    this.registeredVehiclesPlateNumber.push(vehicle.vehiclePlateNumber);
+    this.registeredVehiclesPlateNumber.push(vehiclePlateNumber);
+    return "this vehicle has been registered with success";
   }
 
   registeredVehicles() {
-    return this.vehicles;
+    return this.registeredVehiclesPlateNumber;
   }
 }
 

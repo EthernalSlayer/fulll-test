@@ -1,0 +1,33 @@
+{
+    "fleets": [
+        {
+            "id": 1,
+            "registeredVehiclesPlateNumber": [],
+            "userID": 1
+        }
+    ],
+    "vehicles": [
+        {
+            "id": 1,
+            "vehiclePlateNumber": "PA34ZE",
+            "located": {},
+            "userID": 1
+        },
+        {
+            "id": 2,
+            "vehiclePlateNumber": "AZ44PO",
+            "located": {},
+            "userID": 2
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "toto"
+        },
+        {
+            "id": 2,
+            "name": "tata"
+        }
+    ]
+}
