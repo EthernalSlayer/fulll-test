@@ -1,4 +1,5 @@
 const register_vehicle = require("./app/register_vehicle");
+const park_vehicle = require("./app/park_vehicle");
 
 const args = process.argv.slice(2);
 const action = args[0];
@@ -11,7 +12,14 @@ switch (action) {
     console.log(register_vehicle(parseInt(args[1]), args[2]));
     break;
   case "localize-vehicle":
-    console.log("localize-vehicle");
+    console.log(
+      park_vehicle(
+        parseInt(args[1]),
+        args[2],
+        parseFloat(args[3]),
+        parseFloat(args[4])
+      )
+    );
     break;
   default:
     console.log("Sorry the command not found");

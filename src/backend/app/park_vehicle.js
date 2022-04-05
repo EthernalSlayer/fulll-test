@@ -27,8 +27,10 @@ const park_vehicle = (fleetID, vehiclePlateNumber, lat, long) => {
     myVehicleData[0].located
   );
 
-  //   myVehicleCopy.park(location); // just for test the alredy registered case
+  //   myVehicleCopy.park(location); // just for test the alredy registered case // remove when data persistance activated
   return myVehicleCopy.park(location);
 };
 
-console.log(park_vehicle(1, "PA34ZE", 48.86, 2.28));
+// console.log(park_vehicle(1, "PA34ZE", 48.86, 2.28)); // todo remove
+
+module.exports = park_vehicle;
