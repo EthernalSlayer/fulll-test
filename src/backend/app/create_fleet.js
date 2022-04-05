@@ -9,9 +9,12 @@ const create_fleet = (userID) => {
     return "this user ID doesn't exist";
   }
 
-  const myNewFleet = new Fleet(3, userID);
+  const myNewFleetID = data.fleets.length + 1;
+
+  const myNewFleet = new Fleet(myNewFleetID, userID);
 
   return myNewFleet.id;
 };
 
-console.log(create_fleet(1));
+// console.log(create_fleet(1)); todo remove
+module.exports = create_fleet;

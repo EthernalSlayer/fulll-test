@@ -1,12 +1,13 @@
 const register_vehicle = require("./app/register_vehicle");
 const park_vehicle = require("./app/park_vehicle");
+const create_fleet = require("./app/create_fleet");
 
 const args = process.argv.slice(2);
 const action = args[0];
 
 switch (action) {
   case "create":
-    console.log("create");
+    console.log(create_fleet(parseInt(args[1])));
     break;
   case "register-vehicle":
     console.log(register_vehicle(parseInt(args[1]), args[2]));
