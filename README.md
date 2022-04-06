@@ -63,7 +63,7 @@ to run cucumber tests for backend:
 npm test
 
 to run feature create a fleet:
-node src/backend/ create "<userID>"
+node src/backend/ create {userID}
 
 to run feature register a vehicle:
 node src/backend/ register-vehicle <fleetID> <vehiclePlateNumber>
