@@ -12,7 +12,11 @@ const commandResult = async (action) => {
       console.log(result);
       break;
     case "register-vehicle":
-      console.log(register_vehicle(parseInt(args[1]), args[2]));
+      const register_vehicle_result = await register_vehicle(
+        parseInt(args[1]),
+        args[2]
+      );
+      console.log(register_vehicle_result);
       break;
     case "localize-vehicle":
       console.log(
