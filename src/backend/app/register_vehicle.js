@@ -1,10 +1,11 @@
-const data = require("../infra/data.json");
 const { get_fleet_by_id } = require("../infra/getters/get_fleet_by_id");
+const {
+  update_vehicles_registered,
+} = require("../infra/setters/register_vehicle.setter");
 
 const Fleet = require("../domain/fleet");
 
 const register_vehicle = async (fleetID, vehiclePlateNumber) => {
-  const myFleetData = data.fleets.filter((fleet) => fleet.id === fleetID);
   const fleetData = await get_fleet_by_id(fleetID);
   console.log(fleetData);
 
@@ -15,7 +16,13 @@ const register_vehicle = async (fleetID, vehiclePlateNumber) => {
   );
 
   const result = myFleetCopy.register(vehiclePlateNumber);
-  console.log(myFleetCopy);
+
+  const database_update = await update_vehicles_registered(myFleetCopy);
+
+  if (database_update.rowCount !== 1) {
+    return "Error database update failed";
+  }
+
   return result;
 };
 
