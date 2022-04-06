@@ -66,7 +66,7 @@ to run feature create a fleet:
 node src/backend/ create {userID}
 
 to run feature register a vehicle:
-node src/backend/ register-vehicle <fleetID> <vehiclePlateNumber>
+node src/backend/ register-vehicle {fleetID} {vehiclePlateNumber}
 
 to run feature park a vehicle:
-node src/backend/ localize-vehicle <fleetID> <vehiclePlateNumber> <lat> <lng>
+node src/backend/ localize-vehicle {fleetID} {vehiclePlateNumber} {lat} {lng}
