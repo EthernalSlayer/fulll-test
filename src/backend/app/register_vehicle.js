@@ -1,17 +1,31 @@
-const data = require("../infra/data.json");
+const { get_fleet_by_id } = require("../infra/getters/get_fleet_by_id");
+const {
+  update_vehicles_registered,
+} = require("../infra/setters/register_vehicle.setter");
 
 const Fleet = require("../domain/fleet");
 
-const register_vehicle = (fleetID, vehiclePlateNumber) => {
-  const myFleetData = data.fleets.filter((fleet) => fleet.id === fleetID);
+const register_vehicle = async (fleetID, vehiclePlateNumber) => {
+  const fleetData = await get_fleet_by_id(fleetID);
 
   const myFleetCopy = new Fleet(
-    myFleetData[0].id,
-    myFleetData[0].userID,
-    myFleetData[0].registeredVehiclesPlateNumber
+    fleetData[0].id,
+    fleetData[0].userID,
+    fleetData[0].registeredVehiclesPlateNumber
   );
 
-  return myFleetCopy.register(vehiclePlateNumber);
+  const result = myFleetCopy.register(vehiclePlateNumber);
+
+  if (result === "this vehicle has been registered with success") {
+    const database_update = await update_vehicles_registered(myFleetCopy);
+
+    if (database_update.rowCount !== 1) {
+      return "Error database update failed";
+    }
+  }
+
+  return result;
 };
 
-console.log(register_vehicle(2, "PA34ZE")); // todo remove
+// console.log(register_vehicle(2, "PA34ZE")); // todo remove
+module.exports = register_vehicle;
