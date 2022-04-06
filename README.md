@@ -40,6 +40,21 @@ CREATE TABLE IF NOT EXISTS public.vehicle
 ALTER TABLE public.vehicle
     OWNER to postgres;
 ```
+CREATE 2 users:
+```
+INSERT INTO user (name) 
+VALUES 
+("toto"),
+("tata"); 
+```
+
+CREATE 2 vehicles:
+```
+INSERT INTO vehicles (vehiclePlateNumber, located)
+VALUES
+("PA34ZE", {}),
+("AZ44PO", {})
+```
 
 ## Database config
 copy .env.default into .env
