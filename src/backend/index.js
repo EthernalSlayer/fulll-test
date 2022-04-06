@@ -19,14 +19,13 @@ const commandResult = async (action) => {
       console.log(register_vehicle_result);
       break;
     case "localize-vehicle":
-      console.log(
-        park_vehicle(
-          parseInt(args[1]),
-          args[2],
-          parseFloat(args[3]),
-          parseFloat(args[4])
-        )
+      const localize_vehicle_result = await park_vehicle(
+        parseInt(args[1]),
+        args[2],
+        parseFloat(args[3]),
+        parseFloat(args[4])
       );
+      console.log(localize_vehicle_result);
       break;
     default:
       console.log("Sorry the command not found");
