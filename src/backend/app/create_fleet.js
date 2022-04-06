@@ -1,4 +1,5 @@
 const { get_users_id } = require("../infra/getters/get_users_id");
+const { fleet_create } = require("../infra/setters/create_fleet.setter");
 
 const Fleet = require("../domain/fleet");
 
@@ -12,8 +13,9 @@ const create_fleet = async (userID) => {
   const myNewFleetID = usersID.length + 1;
 
   const myNewFleet = new Fleet(myNewFleetID, userID);
-  console.log(myNewFleet);
-  return myNewFleet.id;
+
+  const result = await fleet_create(myNewFleet);
+  return result.rows[0].id;
 };
 
 // console.log(create_fleet(1)); todo remove
